@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Log out to console when a client connects
 io.on('connection', function(client) {
+  client.emit('message', 'You have connected to the server via socket.io');
   console.log('Client connected successfully');
   client.on('disconnect', function(client) {
     console.log('Client left');
